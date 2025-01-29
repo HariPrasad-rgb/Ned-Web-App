@@ -15,7 +15,7 @@ The Ned Loan Calculator is a Flutter Web application that helps businesses and i
 - Interactive UI: Designed with responsive widgets, sliders, and dropdown selections.
 - State Management: Implemented using ConfigProvider for dynamic data updates.
 
-# **How to Run the Project
+# How to Run the Project
 - git clone https://github.com/HariPrasad-rgb/Ned-Loan-Calculator.git
 - cd Ned-Web-App
 - flutter pub get
