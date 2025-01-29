@@ -55,7 +55,7 @@ class Results extends StatelessWidget {
         final double fees = isValidFunding ? 0.5 * fundingAmount : 0.0;
         final double totalRevenueShare =
             isValidFunding ? fundingAmount + fees : 0.0;
-        print(revenueSharePercentage.runtimeType);
+
         int expectedTransfers = 0;
         if (isValidRevenue && isValidFunding && isValidPercentage) {
           if (revenueFrequency == 'weekly') {
@@ -75,22 +75,24 @@ class Results extends StatelessWidget {
 
         final DateTime today = DateTime.now();
 
-        DateTime completionDate;
-        if (revenueFrequency == 'weekly') {
-          completionDate = today
-              .add(Duration(days: expectedTransfers * 7 + myrepaymentDelay));
-        } else {
-          completionDate = DateTime(
-            today.year + (today.month + expectedTransfers - 1) ~/ 12,
-            (today.month + expectedTransfers - 1) % 12 + 1,
-            today.day,
-          ).add(Duration(days: myrepaymentDelay));
+        DateTime? completionDate;
+        if (isValidRevenue && isValidFunding && isValidPercentage) {
+          if (revenueFrequency == 'weekly') {
+            completionDate = today
+                .add(Duration(days: expectedTransfers * 7 + myrepaymentDelay));
+          } else {
+            completionDate = DateTime(
+              today.year + (today.month + expectedTransfers - 1) ~/ 12,
+              (today.month + expectedTransfers - 1) % 12 + 1,
+              today.day,
+            ).add(Duration(days: myrepaymentDelay));
+          }
         }
 
         final int maxDays = 365 * 100;
         final DateTime maxAllowedDate = today.add(Duration(days: maxDays));
-        final DateTime safeCompletionDate =
-            completionDate.isAfter(maxAllowedDate)
+        final DateTime? safeCompletionDate =
+            (completionDate != null && completionDate.isAfter(maxAllowedDate))
                 ? maxAllowedDate
                 : completionDate;
 
@@ -158,10 +160,13 @@ class Results extends StatelessWidget {
                 _buildRow(context, "Expected Transfers", "$expectedTransfers",
                     screenHeight),
                 _buildRow(
-                    context,
-                    "Expected Completion Date",
-                    DateFormat('MMMM d, y').format(safeCompletionDate),
-                    screenHeight),
+                  context,
+                  "Expected Completion Date",
+                  safeCompletionDate != null
+                      ? DateFormat('MMMM d, y').format(safeCompletionDate)
+                      : "Invalid",
+                  screenHeight,
+                ),
               ],
             ),
           ),
