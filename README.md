@@ -4,7 +4,7 @@
 
 # **Ned Loan Calculator**
 
-#** BONUS FEATURES HAVE BEEN IMPLEMENTED AS PER THE ASSIGNMENT
+# BONUS FEATURES HAVE BEEN IMPLEMENTED AS PER THE ASSIGNMENT
 
 ## **Project Details**
 The Ned Loan Calculator is a Flutter Web application that helps businesses and individuals calculate loan repayment schedules, understand revenue percentages, and explore financing options effectively. The system integrates interactive UI components, dynamic input handling, and API-based configuration loading to ensure accurate financial estimations.
