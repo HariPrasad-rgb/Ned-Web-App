@@ -21,7 +21,7 @@ The Ned Loan Calculator is a Flutter Web application that helps businesses and i
 - flutter pub get
 - flutter run
 
-## **Screenshot
+# Screenshot
 ![image](https://github.com/user-attachments/assets/fa2f83a0-c9ad-44e6-858d-209bec9bf686)
 
 
