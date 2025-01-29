@@ -13,6 +13,6 @@ The Ned Loan Calculator is a Flutter Web application that helps businesses and i
 
 ## **How to Run the Project
 - git clone https://github.com/HariPrasad-rgb/Ned-Loan-Calculator.git
-- cd Ned-Loan-Calculator
+- cd Ned-Web-App
 - flutter pub get
 - flutter run
