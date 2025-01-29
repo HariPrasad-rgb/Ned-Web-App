@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/ed156659-7c25-4f0d-842a-e94985bfd8f0
+
 # **Ned Loan Calculator**
 
 ## **Project Details**
